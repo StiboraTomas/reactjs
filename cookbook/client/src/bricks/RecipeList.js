@@ -1,14 +1,15 @@
 import React from "react";
-import Recipe from "./Recipe";
+import Recept from "./Recipe";
 
-function RecipeList(props) {
-  function getRecipeList(recipeList) {
-    return recipeList.map((recipe) => {
-      return <Recipe key={recipe.id} recipe={recipe} />;
+function VypisRecepty(props) {
+  function nactiRecepty(recipeData) {
+    return recipeData.map((recept) => {
+      return <Recept key={recept.id} recept={recept} />;
     });
   }
 
-  return getRecipeList(props.recipeList);
+  return nactiRecepty(props.recipeData);
 }
 
-export default RecipeList;
+export default VypisRecepty;
+

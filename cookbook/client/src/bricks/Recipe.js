@@ -1,12 +1,21 @@
 import React from "react";
+import Card from "react-bootstrap/Card";
+import Icon from "@mdi/react";
+import { mdiChefHat } from '@mdi/js';
+import styles from "../css/karta.module.css";
+//style={{height:'max-content',}}
 
-function Recipe(props) {
+function Recept(props) {
   return (
-    <div key={props.recipe.name}>
-      <div>{props.recipe.description}</div>
-      <div>{props.recipe.imgUri}</div>
-    </div>
+    <Card className={styles.karta}>
+      <Card.Img src={props.recept.url}/>
+      <Card.Body >
+        <Card.Title><Icon path={mdiChefHat} size={1} color="grey"></Icon>{" "+props.recept.name+" "}<Icon path={mdiChefHat} size={1} color="grey"></Icon></Card.Title>
+        <p></p>
+        <Card.Text>{props.recept.description}</Card.Text>
+      </Card.Body>
+    </Card>
   );
 }
 
-export default Recipe;
+export default Recept;
