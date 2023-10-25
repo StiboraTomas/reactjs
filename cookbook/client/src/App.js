@@ -4,7 +4,7 @@ import VypisRecepty from "./bricks/RecipeList";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const header = {
-  nadpis: "Kniha Receptů",
+  nadpis: "Kuchařka",
 };
 const recipeData = [
   {
@@ -71,10 +71,8 @@ const recipeData = [
 
 function App() {
   return (
-    <div className="App">   
-    <p/> 
+    <div className="App">
     <ShowHeader header={header}/>
-    <p/>
     <VypisRecepty recipeData={recipeData}/>
     </div>
   );

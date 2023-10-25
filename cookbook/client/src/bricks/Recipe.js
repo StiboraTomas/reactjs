@@ -3,7 +3,6 @@ import Card from "react-bootstrap/Card";
 import Icon from "@mdi/react";
 import { mdiChefHat } from '@mdi/js';
 import styles from "../css/karta.module.css";
-//style={{height:'max-content',}}
 
 function Recept(props) {
   return (
@@ -18,4 +17,4 @@ function Recept(props) {
   );
 }
 
-export default Recept;
+export default Recept; 
