@@ -23,7 +23,7 @@ function VypisRecepty(props) {
         item.description.toLocaleLowerCase().includes(searchBy.toLocaleLowerCase())
       );
     });
-  }, [searchBy]);
+  }, [searchBy,props.recipeData]);
 
   function handleSearch(event) { // the function that we will run when the form is "submitted"- i.e. when the search button is pressed
     event.preventDefault();
