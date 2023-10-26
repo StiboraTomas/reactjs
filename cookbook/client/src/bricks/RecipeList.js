@@ -4,13 +4,16 @@ import Form from "react-bootstrap/Form";
 import React, { useState, useMemo } from "react";
 import RecipeGridList from "./RecipeGridList";
 import RecipeTableList from "./RecipeTableList";
+import RecipeSimplifiedList from "./RecipeSimplifiedList";
 import Icon from "@mdi/react";
 import { mdiTable, mdiViewGridOutline, mdiMagnify } from "@mdi/js";
 
 
 function VypisRecepty(props) {
-  const [viewType, setViewType] = useState("grid");
+  const [viewType, setViewType] = useState("smallgrid");
+  const isSmallGrid = viewType === "smallgrid";
   const isGrid = viewType === "grid";
+  const isTable = viewType === "table";
   const [searchBy, setSearchBy] = useState("");
 
   const filteredRecipeList = useMemo(() => {
@@ -58,25 +61,31 @@ function VypisRecepty(props) {
           <Button
             variant="outline-dark"
             onClick={() =>
-              setViewType((currentState) => {
+               setViewType((currentState) => {
                 if (currentState === "grid") return "table";
-                else return "grid";
+                if (currentState === "table") return "smallgrid";
+                if (currentState === "smallgrid") return "grid";
+                else return "table"
               })
-            }
+             }
           >
-            <Icon size={1} path={isGrid ? mdiTable : mdiViewGridOutline} />{" "}
-            {isGrid ? "Změna zobrazení" : "Změna zobrazení"}
+            <Icon size={1} path={isGrid ? mdiTable : isTable ? mdiViewGridOutline : isSmallGrid ? mdiViewGridOutline : mdiTable} />{" "}
+            {isGrid ? "Změna zobrazení" : isTable ? "Změna zobrazení" : isSmallGrid ? "Změna zobrazení" : "table"}
           </Button>
           </Form>
           </div>
         </div>
       </Navbar>
       {isGrid ? (
-        <RecipeGridList recipeData={filteredRecipeList} />
-      ) : (
         <RecipeTableList recipeData={filteredRecipeList} />
-      )}
+      ) : isTable? (
+        <RecipeSimplifiedList recipeData={filteredRecipeList} />
+      ) : isSmallGrid? (
+        <RecipeGridList recipeData={filteredRecipeList} />)
+        : (<RecipeTableList recipeData={filteredRecipeList}/>) 
+      }
     </div>
   );
 }
 export default VypisRecepty;
+

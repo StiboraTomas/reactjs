@@ -19,7 +19,6 @@ function RecipeTableList(props) {
               <td>{recept.name}</td>
               <td>{recept.description}</td>
               <td><Card.Img src={recept.url}/></td>
-              {/* <td>{recept.url}</td> Fucking how?*/}
             </tr>
           );
         })}
