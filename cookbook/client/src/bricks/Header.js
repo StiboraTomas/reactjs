@@ -7,7 +7,7 @@ function ShowHeader(props) {
   return(
     <h1>
     <span className={styles.headerStyle}>
-      {props.header.nadpis}
+      {props.header}
     </span>
   </h1>
   );

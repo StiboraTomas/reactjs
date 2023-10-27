@@ -7,6 +7,7 @@ import RecipeTableList from "./RecipeTableList";
 import RecipeSimplifiedList from "./RecipeSimplifiedList";
 import Icon from "@mdi/react";
 import { mdiTable, mdiViewGridOutline, mdiMagnify } from "@mdi/js";
+import styles from "../css/recipeList.module.css";
 
 
 function VypisRecepty(props) {
@@ -15,15 +16,15 @@ function VypisRecepty(props) {
   const isGrid = viewType === "grid";
   const isTable = viewType === "table";
   const [searchBy, setSearchBy] = useState("");
-
+//props.recipeData
   const filteredRecipeList = useMemo(() => {
-    return props.recipeData.filter((item) => {
+    return props.recipe.filter((item) => {
       return (
         item.name.toLocaleLowerCase().includes(searchBy.toLocaleLowerCase()) ||
         item.description.toLocaleLowerCase().includes(searchBy.toLocaleLowerCase())
       );
     });
-  }, [searchBy,props.recipeData]);
+  }, [searchBy, props.recipe.recipeList]);
 
   function handleSearch(event) { // the function that we will run when the form is "submitted"- i.e. when the search button is pressed
     event.preventDefault();
