@@ -95,7 +95,7 @@ function App() {
   });
 
   useEffect(() => {
-    fetch(`http://localhost:8000/recipe/list?id=${"b6c21cf8807dd356"}`, {
+    fetch(`http://localhost:3000/recipe/list`, {
       method: "GET",
     }).then(async (response) => {
       const responseJson = await response.json();
@@ -106,6 +106,22 @@ function App() {
       }
     });
   }, []); 
+
+  /*
+  useEffect(() => {
+    fetch(`http://localhost:3000/recipe/list`, {
+      method: "GET",
+    }).then(async (response) => {
+      const responseJson = await response.json();
+      if (response.status >= 400) {
+        setRecipeLoadCall({ state: "error", error: responseJson });
+      } else {
+        setRecipeLoadCall({ state: "success", data: responseJson });
+      }
+    });
+  }, []); 
+
+  */
 
   function getIngredients() {
     switch (recipeLoadCall.state) {
