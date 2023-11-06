@@ -7,7 +7,7 @@ import styles from "../css/karta.module.css";
 function Recept(props) {
   return (
     <Card className={styles.karta}>
-      <Card.Img src={props.recept.url}/>
+      <Card.Img src={props.recept.imgUri}/>
       <Card.Body >
         <Card.Title><Icon path={mdiChefHat} size={1} color="grey"></Icon>{" "+props.recept.name+" "}<Icon path={mdiChefHat} size={1} color="grey"></Icon></Card.Title>
         <p></p>

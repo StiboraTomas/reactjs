@@ -6,7 +6,7 @@ function ReceptSimple(props) {
   return (
     
     <Card className={styles.kartaMala}>
-      <Card.Img src={props.recept.url}/>
+      <Card.Img src={props.recept.imgUri}/>
       <Card.Body >
 
     <Card.Text>{props.recept.name}</Card.Text>

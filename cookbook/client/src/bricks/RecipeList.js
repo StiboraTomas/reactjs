@@ -7,7 +7,6 @@ import RecipeTableList from "./RecipeTableList";
 import RecipeSimplifiedList from "./RecipeSimplifiedList";
 import Icon from "@mdi/react";
 import { mdiTable, mdiViewGridOutline, mdiMagnify } from "@mdi/js";
-import styles from "../css/recipeList.module.css";
 
 
 function VypisRecepty(props) {
@@ -24,7 +23,7 @@ function VypisRecepty(props) {
         item.description.toLocaleLowerCase().includes(searchBy.toLocaleLowerCase())
       );
     });
-  }, [searchBy, props.recipe.recipeList]);
+  }, [searchBy, props.recipe]);
 
   function handleSearch(event) { // the function that we will run when the form is "submitted"- i.e. when the search button is pressed
     event.preventDefault();

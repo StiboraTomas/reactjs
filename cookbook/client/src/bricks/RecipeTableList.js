@@ -18,7 +18,7 @@ function RecipeTableList(props) {
             <tr key={recept.id}>
               <td>{recept.name}</td>
               <td>{recept.description}</td>
-              <td><Card.Img src={recept.url}/></td>
+              <td><Card.Img src={recept.imgUri}/></td>
             </tr>
           );
         })}
